@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-brand: "Cinzel Decorative", "Playfair Display", Georgia, serif;
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-charcoal-950: #0D0C0B;
+  --color-charcoal-900: #151311;
+  --color-charcoal-850: #1D1A17;
+  --color-charcoal-800: #26221E;
+  --color-gold-400: #D9B878;
+  --color-gold-500: #C5A059;
+  --color-gold-600: #A3803D;
+  --color-bronze-500: #8C6D46;
+  --color-bronze-700: #5E472C;
+  --color-ivory-100: #F4EFE6;
+  --color-ivory-300: #C8BFB0;
+  --color-ivory-500: #8E8477;
+  --color-crimson-600: #9E2A2B;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: #0D0C0B;
+    color: #F4EFE6;
+    font-family: var(--font-sans);
+    overscroll-behavior-y: none;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  .font-brand {
+    font-family: var(--font-brand);
+  }
+}
+
+@keyframes detectivesEyeAura {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.94);
+    opacity: 0.42;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.78;
+  }
+}
+
+@keyframes candleFlicker {
+  0%, 100% {
+    opacity: 0.22;
+    transform: scale(1);
+  }
+  35% {
+    opacity: 0.31;
+    transform: scale(1.03);
+  }
+  68% {
+    opacity: 0.18;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes moonlightDrift {
+  0%, 100% {
+    opacity: 0.14;
+  }
+  50% {
+    opacity: 0.24;
+  }
+}
+
+.animate-detectives-eye {
+  animation: detectivesEyeAura 2.4s ease-in-out infinite;
+}
+
+.animate-candle-flicker {
+  animation: candleFlicker 4.2s ease-in-out infinite;
+}
+
+.animate-moonlight-drift {
+  animation: moonlightDrift 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-detectives-eye,
+  .animate-candle-flicker,
+  .animate-moonlight-drift {
+    animation: none;
+  }
+}
